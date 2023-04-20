@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Not yet started
+      </div>
+    
+      <ul id="not_yet_started_list" class="list-group list-group-flush">
+        <%= render "tasks/form", task: current_user.tasks.build %>
+        <%= render current_user.tasks.not_yet_started.order(created_at: :desc) %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        In progress
+      </div>
+    
+      <ul id="in_progress_list" class="list-group list-group-flush">
+        <%= render current_user.tasks.in_progress.order(updated_at: :desc) %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Completed
+      </div>
+    
+      <ul id="completed_list" class="list-group list-group-flush">
+        <%= render current_user.tasks.completed.order(updated_at: :desc) %>
+      </ul>
+    </div>
+  </div>
+</div>

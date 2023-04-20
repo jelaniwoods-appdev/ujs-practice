@@ -1,0 +1,11 @@
+var new_task = $("<%= j(render @task) %>");
+
+new_task.hide();
+
+$("#form_task").after(new_task);
+
+new_task.slideDown();
+
+$("#form_task").before(new_task);
+
+$("#form_task #task_content").val("");
